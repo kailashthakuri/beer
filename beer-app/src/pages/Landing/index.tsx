@@ -73,13 +73,13 @@ const Landing = () => {
         setMyBeers(BeerUtils.upsertBeer(myBeers, beer));
         addAlert(Severity.SUCCESS, beer.id ? 'Beer has been updated successfully!' : 'New beer has been added successfully!');
         setOpenEditPopup(false);
-    },[]);
+    },[myBeers]);
 
     const onRemoveBeer = useCallback((id: string) => {
         // better to show popup (Are you sure?) before deleting.
         setMyBeers(BeerUtils.removeBeer(myBeers, id));
         addAlert(Severity.SUCCESS, 'Beer has been removed successfully!');
-    },[]);
+    },[myBeers]);
 
     const loadMore = useCallback(async () => {
         setAllBeerPageState({...allBearPageState, offset: allBearPageState.offset + 1});
