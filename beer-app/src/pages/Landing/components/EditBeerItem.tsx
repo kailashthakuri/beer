@@ -109,7 +109,7 @@ export const EditBeerItem = memo((props: EditBeerItemProps) => {
                             </Grid>
                             {
                                 formFields.map((formField) => {
-                                    return <Grid item xs={12}>
+                                    return <Grid item xs={12} key={formField.name}>
                                         <FormControl
                                             variant="outlined"
                                             fullWidth>
