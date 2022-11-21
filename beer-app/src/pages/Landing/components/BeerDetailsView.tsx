@@ -45,14 +45,14 @@ export const BeerDetailsView = memo(({beer, onClose}: { beer: Partial<Beer>, onC
                             <Grid container spacing={2}>
                                 {Object.entries(beer.ingredients || {}).map(([k, ingredients]) => {
                                     return (
-                                        <Grid item xs={12}>
+                                        <Grid item xs={12} key={k}>
                                             <Typography
                                                 variant={'subtitle1'}>{StringUtils.capitalizeFirstLetter(k)}</Typography>
                                             {
                                                 Array.isArray(ingredients) ? (
                                                     (ingredients || []).map(ingredient => {
                                                         return (
-                                                            <Chip
+                                                            <Chip key={ingredient.name}
                                                                 color={'primary'}
                                                                 label={`${ingredient.name} : ${ingredient.amount.value}${ingredient.amount.unit}`}
                                                                 variant="outlined" sx={{m: 0.5}}/>
